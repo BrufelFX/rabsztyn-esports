@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Rabsztyn Esports</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #020617;
+  color: white;
+}
+
+/* GRID */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(34,197,94,0.2) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.25;
+}
+
+/* GLOW */
+body::after {
+  content: "";
+  position: fixed;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(34,197,94,0.2), transparent 70%);
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(120px);
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  background: rgba(2,6,23,0.8);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.logo span {
+  color: #22c55e;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  opacity: 0.7;
+  transition: 0.2s;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+  color: #22c55e;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  margin-top: 100px;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 64px;
+  margin: 0;
+}
+
+.hero h1 span {
+  background: linear-gradient(90deg, #22c55e, #60a5fa);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  margin-top: 20px;
+  font-size: 18px;
+  opacity: 0.7;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  margin-top: 30px;
+  padding: 15px 30px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+  cursor: pointer;
+}
+
+/* SECTION */
+.section {
+  margin-top: 120px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.stats {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.stats span {
+  background: rgba(34,197,94,0.15);
+  border: 1px solid rgba(34,197,94,0.3);
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.card {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 16px;
+  background: rgba(15,23,42,0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.05);
+  line-height: 1.7;
+}
+
+.highlight {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+/* TEAM */
+.team {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.player {
+  width: 200px;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(15,23,42,0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.05);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.player:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.player img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid #22c55e;
+}
+
+.player h3 {
+  margin: 10px 0 5px;
+}
+
+.player p {
+  opacity: 0.6;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav">
+  <div class="logo">Rabsztyn<span> Esports</span></div>
+
+  <div class="nav-links">
+    <a href="#onas">O nas</a>
+    <a href="#sklad">Skład</a>
+    <a href="#turnieje">Turnieje</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Przyszłość <span>Esportu</span></h1>
+  <p>
+    Rabsztyn Esports to drużyna, która powstała z pasji, ambicji i chęci dominacji.
+  </p>
+  <button class="btn">Dołącz do nas</button>
+</div>
+
+<div class="section" id="sklad">
+  <h2>Skład drużyny</h2>
+
+  <div class="team">
+
+    <div class="player">
+      <img src="https://cdn.discordapp.com/attachments/1033412098736275567/1485724425927135332/rabsztynlogo.png?ex=69f99e72&is=69f84cf2&hm=9cd966f3f5ddba44b315c1096e16a84082a3cd231a45367cbdf5f08560b7dcb0&">
+      <h3>Xchabolol</h3>
+      <p>Rifler</p>
+
+      <div class="stats">
+        <span>K/D: 1.02</span>
+        <span>HS: 50%</span>
+        <span>ADR: 76</span>
+        <span>Win: 56%</span>
+      </div>
+    </div>
+
+    <div class="player">
+      <img src="https://cdn.discordapp.com/attachments/1033412098736275567/1485724425927135332/rabsztynlogo.png?ex=69f99e72&is=69f84cf2&hm=9cd966f3f5ddba44b315c1096e16a84082a3cd231a45367cbdf5f08560b7dcb0&">
+      <h3>Qprei</h3>
+      <p>Kotwica / Rifler</p>
+
+      <div class="stats">
+        <span>K/D: 1.11</span>
+        <span>HS: 47%</span>
+        <span>ADR: 81</span>
+        <span>Win: 49%</span>
+      </div>
+    </div>
+
+    <div class="player">
+      <img src="https://cdn.discordapp.com/attachments/1033412098736275567/1485724425927135332/rabsztynlogo.png?ex=69f99e72&is=69f84cf2&hm=9cd966f3f5ddba44b315c1096e16a84082a3cd231a45367cbdf5f08560b7dcb0&">
+      <h3>BrufelFX</h3>
+      <p>AWP</p>
+
+      <div class="stats">
+        <span>K/D: 1.62</span>
+        <span>HS: 35%</span>
+        <span>ADR: 99</span>
+        <span>Win: 80%</span>
+      </div>
+    </div>
+
+    <div class="player">
+      <img src="https://cdn.discordapp.com/attachments/1033412098736275567/1485724425927135332/rabsztynlogo.png?ex=69f99e72&is=69f84cf2&hm=9cd966f3f5ddba44b315c1096e16a84082a3cd231a45367cbdf5f08560b7dcb0&">
+      <h3>Kenzo</h3>
+      <p>Rifler</p>
+
+      <div class="stats">
+        <span>K/D: 1.03</span>
+        <span>HS: 56%</span>
+        <span>ADR: 80</span>
+        <span>Win: 51%</span>
+      </div>
+    </div>
+
+    <div class="player">
+      <img src="https://cdn.discordapp.com/attachments/1033412098736275567/1485724425927135332/rabsztynlogo.png?ex=69f99e72&is=69f84cf2&hm=9cd966f3f5ddba44b315c1096e16a84082a3cd231a45367cbdf5f08560b7dcb0&">
+      <h3>Antek</h3>
+      <p>Rifler</p>
+
+      <div class="stats">
+        <span>K/D: 1.28</span>
+        <span>HS: 55%</span>
+        <span>ADR: 95</span>
+        <span>Win: 56%</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- O NAS -->
+<div class="section" id="onas">
+  <div class="card">
+    <h2>Kim jesteśmy?</h2>
+    <p>
+      Rabsztyn Esports wywodzi się z kultowego nazwiska <span class="highlight">Piotrka</span>.
+      Budujemy przyszłą potęgę esportu.
+    </p>
+  </div>
+</div>
+
+<!-- TURNIEJE -->
+<div class="section" id="turnieje">
+  <div class="card">
+    <h2>Turnieje</h2>
+    <p>HSmania top 2 150pkt</p>
+  </div>
+</div>
+
+</body>
+</html>
