@@ -2,6 +2,7 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rabsztyn Esports</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -9,44 +10,39 @@
 <style>
 * { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background: #020617;
   color: white;
+  overflow-x: hidden;
 }
 
-/* GRID - Zmieniony na pomarańczowy */
+/* TŁO: GRID I POŚWIATA */
 body::before {
   content: "";
   position: fixed;
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   background-image: radial-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 1px);
   background-size: 40px 40px;
   opacity: 0.25;
   z-index: -1;
 }
 
-/* GLOW - Zmieniony na pomarańczowy */
 body::after {
   content: "";
   position: fixed;
-  width: 700px;
-  height: 700px;
+  width: 700px; height: 700px;
   background: radial-gradient(circle, rgba(249, 115, 22, 0.15), transparent 70%);
-  top: 0;
-  left: 50%;
+  top: 0; left: 50%;
   transform: translateX(-50%);
   filter: blur(120px);
   z-index: -1;
 }
 
-/* NAV */
+/* NAWIGACJA */
 .nav {
   display: flex;
   justify-content: space-between;
@@ -56,296 +52,264 @@ body::after {
   background: rgba(2,6,23,0.8);
   backdrop-filter: blur(10px);
   z-index: 100;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.logo {
-  font-weight: 800;
-  font-size: 22px;
-}
-
-.logo span {
-  color: #f97316; /* Pomarańczowy */
-}
-
-/* CENTERED NAV */
-.centered-nav {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 80px;
-  margin-bottom: 20px;
-}
-
-.centered-nav a {
-  text-decoration: none;
-  color: white;
-  font-size: 20px;
-  font-weight: 600;
-  opacity: 0.7;
-  transition: 0.3s;
-  padding-bottom: 5px;
-  cursor: pointer;
-}
-
-.centered-nav a:hover {
-  opacity: 1;
-  color: #f97316;
-}
-
-.centered-nav a.active-link {
-  opacity: 1;
-  color: #f97316;
-  border-bottom: 2px solid #f97316;
-}
+.logo { font-weight: 800; font-size: 22px; }
+.logo span { color: #f97316; }
 
 /* HERO */
-.hero {
-  text-align: center;
-  margin-top: 100px;
-  padding: 0 20px;
-}
-
-.hero h1 {
-  font-size: 64px;
-  margin: 0;
-}
-
+.hero { text-align: center; margin-top: 100px; padding: 0 20px; }
+.hero h1 { font-size: 72px; margin: 0; font-weight: 800; }
 .hero h1 span {
-  background: linear-gradient(90deg, #f97316, #fbbf24); /* Pomarańczowo-żółty gradient */
+  background: linear-gradient(90deg, #f97316, #fbbf24);
   -webkit-background-clip: text;
   color: transparent;
 }
-
-.hero p {
-  margin-top: 20px;
-  font-size: 18px;
-  opacity: 0.7;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+.hero p { 
+  margin: 25px auto; 
+  font-size: 18px; 
+  opacity: 0.7; 
+  max-width: 650px; 
+  line-height: 1.6;
 }
 
 .btn {
-  margin-top: 30px;
-  padding: 15px 30px;
+  margin-top: 10px;
+  padding: 16px 35px;
   border-radius: 12px;
   border: none;
-  font-weight: 600;
-  background: linear-gradient(90deg, #f97316, #ea580c); /* Pomarańczowy gradient */
+  font-weight: 700;
+  background: linear-gradient(90deg, #f97316, #ea580c);
   color: white;
   cursor: pointer;
   transition: 0.3s;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 10px 20px rgba(249, 115, 22, 0.2);
 }
 
-.btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
-}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(249, 115, 22, 0.4); }
 
-/* SECTION */
-.section {
-  margin-top: 120px;
-  text-align: center;
-  padding: 0 20px;
-}
+/* SEKCJA SKŁADU */
+.section { margin-top: 120px; text-align: center; padding: 0 20px; }
 
-/* TABS */
-.tab-content {
-  display: none;
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-.tab-content.active-tab {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.stats {
-  margin-top: 15px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-}
-
-.stats span {
-  background: rgba(249, 115, 22, 0.1);
-  border: 1px solid rgba(249, 115, 22, 0.3);
-  padding: 5px 10px;
-  border-radius: 8px;
-  font-size: 12px;
-}
-
-.card {
-  max-width: 800px;
-  margin: 20px auto 40px;
-  padding: 30px;
-  border-radius: 16px;
-  background: rgba(15,23,42,0.6);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.05);
-  line-height: 1.7;
-}
-
-.highlight {
-  color: #f97316;
-  font-weight: 600;
-}
-
-/* TEAM */
 .team {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 25px;
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .player {
-  width: 200px;
-  padding: 20px;
-  border-radius: 16px;
+  width: 250px;
+  padding: 30px 20px;
+  border-radius: 20px;
   background: rgba(15,23,42,0.6);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255,255,255,0.05);
   text-align: center;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
-.player:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-  border-color: rgba(249, 115, 22, 0.3);
-}
+.player:hover { border-color: #f97316; }
 
 .player img {
-  width: 100px;
-  height: 100px;
+  width: 110px; height: 110px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 10px;
-  border: 2px solid #f97316;
+  margin-bottom: 15px;
+  border: 3px solid #f97316;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-.player h3 {
-  margin: 10px 0 5px;
+/* STATYSTYKI */
+.stats-container {
+  margin-top: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 16px;
 }
 
-.player p {
-  opacity: 0.6;
+.main-stat-label { display: block; font-size: 11px; text-transform: uppercase; opacity: 0.5; letter-spacing: 1px; }
+.main-stat { display: block; font-size: 40px; font-weight: 800; color: #f97316; margin: 5px 0; }
+
+.secondary-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 15px;
 }
+
+.stat-box { display: flex; flex-direction: column; align-items: center; }
+.stat-val { font-weight: 800; font-size: 24px; color: #ffffff; }
+.stat-label { font-size: 11px; opacity: 0.5; text-transform: uppercase; }
+
+/* ZAKŁADKI */
+.centered-nav { display: flex; justify-content: center; gap: 30px; margin-top: 80px; }
+.centered-nav a {
+  text-decoration: none; color: white; font-size: 18px; font-weight: 700;
+  opacity: 0.5; transition: 0.3s; padding: 10px 20px; cursor: pointer;
+  border-radius: 10px;
+}
+.centered-nav a:hover, .centered-nav a.active-link { opacity: 1; color: #f97316; background: rgba(249, 115, 22, 0.1); }
+
+.tab-content { display: none; animation: slideUp 0.5s ease-out; }
+.tab-content.active-tab { display: block; }
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  max-width: 850px; margin: 30px auto; padding: 50px;
+  border-radius: 24px; background: rgba(15,23,42,0.6);
+  backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05);
+  line-height: 1.8; text-align: left;
+}
+
+.highlight { color: #f97316; font-weight: 600; }
+
+.copy-toast {
+  position: fixed; bottom: 30px; left: 50%; transform: translate(-50%, 100px);
+  background: #f97316; color: white; padding: 14px 30px; border-radius: 50px;
+  font-weight: 700; transition: 0.4s; z-index: 1000;
+}
+.copy-toast.show { transform: translate(-50%, 0); }
+
 </style>
 </head>
-
 <body>
 
-<!-- NAV -->
+<div id="toast" class="copy-toast">Uruchamianie zaproszenia... 🚀</div>
+
 <div class="nav">
   <div class="logo">Rabsztyn<span> Esports</span></div>
 </div>
 
-<!-- HERO -->
 <div class="hero">
   <h1>Przyszłość <span>Esportu</span></h1>
-  <p>
-    Rabsztyn Esports to drużyna, która powstała z pasji, ambicji i chęci dominacji.
-  </p>
-  <button class="btn">Dołącz do nas</button>
+  <p>Rabsztyn Esports to elitarna formacja zbudowana na pasji, ambicji i chęci dominacji. Nie gramy, by brać udział. Gramy, by wygrywać.</p>
+  <a href="https://discord.gg/gNF2YjAmAS" target="_blank" class="btn" onclick="showToast()">DOŁĄCZ DO NAS</a>
 </div>
 
-<!-- SKŁAD -->
 <div class="section" id="sklad">
-  <h2>Skład drużyny</h2>
+  <h2 style="font-size: 32px;">SKŁAD DRUŻYNY</h2>
 
-<div class="team">
+  <div class="team">
     <div class="player">
       <img src="img/rabsztynlogo.png" alt="Xchabolol">
       <h3>Xchabolol</h3>
-      <p>Rifler</p>
-      <div class="stats">
-        <span>K/D: 1.02</span>
-        <span>HS: 50%</span>
-        <span>ADR: 76</span>
-        <span>Win: 56%</span>
+      <p style="opacity:0.5; font-size:14px; margin-bottom:15px;">Rifler</p>
+      <div class="stats-container">
+        <span class="main-stat-label">K/D Ratio</span>
+        <span class="main-stat counter" data-target="1.02">0</span>
+        <div class="secondary-stats">
+          <div class="stat-box"><span class="stat-val counter" data-target="50">0</span><span class="stat-label">HS%</span></div>
+          <div class="stat-box"><span class="stat-val counter" data-target="76">0</span><span class="stat-label">ADR</span></div>
+        </div>
       </div>
     </div>
 
     <div class="player">
       <img src="img/rabsztynlogo.png" alt="Qprei">
       <h3>Qprei</h3>
-      <p>Kotwica / Rifler</p>
-      <div class="stats">
-        <span>K/D: 1.11</span>
-        <span>HS: 47%</span>
-        <span>ADR: 81</span>
-        <span>Win: 49%</span>
+      <p style="opacity:0.5; font-size:14px; margin-bottom:15px;">Anchor</p>
+      <div class="stats-container">
+        <span class="main-stat-label">K/D Ratio</span>
+        <span class="main-stat counter" data-target="1.11">0</span>
+        <div class="secondary-stats">
+          <div class="stat-box"><span class="stat-val counter" data-target="47">0</span><span class="stat-label">HS%</span></div>
+          <div class="stat-box"><span class="stat-val counter" data-target="81">0</span><span class="stat-label">ADR</span></div>
+        </div>
       </div>
     </div>
 
     <div class="player">
       <img src="img/rabsztynlogo.png" alt="BrufelFX">
       <h3>BrufelFX</h3>
-      <p>AWP</p>
-      <div class="stats">
-        <span>K/D: 1.62</span>
-        <span>HS: 35%</span>
-        <span>ADR: 99</span>
-        <span>Win: 80%</span>
+      <p style="opacity:0.5; font-size:14px; margin-bottom:15px;">AWP</p>
+      <div class="stats-container">
+        <span class="main-stat-label">K/D Ratio</span>
+        <span class="main-stat counter" data-target="1.62">0</span>
+        <div class="secondary-stats">
+          <div class="stat-box"><span class="stat-val counter" data-target="35">0</span><span class="stat-label">HS%</span></div>
+          <div class="stat-box"><span class="stat-val counter" data-target="99">0</span><span class="stat-label">ADR</span></div>
+        </div>
       </div>
     </div>
 
     <div class="player">
       <img src="img/rabsztynlogo.png" alt="Kenzo">
       <h3>Kenzo</h3>
-      <p>Rifler</p>
-      <div class="stats">
-        <span>K/D: 1.03</span>
-        <span>HS: 56%</span>
-        <span>ADR: 80</span>
-        <span>Win: 51%</span>
+      <p style="opacity:0.5; font-size:14px; margin-bottom:15px;">Rifler</p>
+      <div class="stats-container">
+        <span class="main-stat-label">K/D Ratio</span>
+        <span class="main-stat counter" data-target="1.03">0</span>
+        <div class="secondary-stats">
+          <div class="stat-box"><span class="stat-val counter" data-target="56">0</span><span class="stat-label">HS%</span></div>
+          <div class="stat-box"><span class="stat-val counter" data-target="80">0</span><span class="stat-label">ADR</span></div>
+        </div>
       </div>
     </div>
 
     <div class="player">
       <img src="img/rabsztynlogo.png" alt="Antek">
       <h3>Antek</h3>
-      <p>Rifler</p>
-      <div class="stats">
-        <span>K/D: 1.28</span>
-        <span>HS: 55%</span>
-        <span>ADR: 95</span>
-        <span>Win: 56%</span>
+      <p style="opacity:0.5; font-size:14px; margin-bottom:15px;">Rifler</p>
+      <div class="stats-container">
+        <span class="main-stat-label">K/D Ratio</span>
+        <span class="main-stat counter" data-target="1.28">0</span>
+        <div class="secondary-stats">
+          <div class="stat-box"><span class="stat-val counter" data-target="55">0</span><span class="stat-label">HS%</span></div>
+          <div class="stat-box"><span class="stat-val counter" data-target="95">0</span><span class="stat-label">ADR</span></div>
+        </div>
       </div>
     </div>
-</div>
-</div>
-
-<!-- NAWIGACJA ZAKŁADEK -->
-<div class="centered-nav">
-  <a id="btn-onas" class="active-link">O nas</a>
-  <a id="btn-turnieje">Turnieje</a>
-</div>
-
-<!-- O NAS -->
-<div class="section tab-content active-tab" id="onas" style="margin-top: 20px;">
-  <div class="card">
-    <h2>Kim jesteśmy?</h2>
-    <p>
-      Rabsztyn Esports wywodzi się z kultowego nazwiska <span class="highlight">Piotrka</span>.
-      Budujemy przyszłą potęgę esportu.
-    </p>
   </div>
 </div>
 
-<!-- TURNIEJE -->
-<div class="section tab-content" id="turnieje" style="margin-top: 20px;">
+<div class="centered-nav">
+  <a id="btn-onas" class="active-link">O NAS</a>
+  <a id="btn-turnieje">TURNIEJE</a>
+</div>
+
+<div class="section tab-content active-tab" id="onas">
   <div class="card">
-    <h2>Turnieje</h2>
-    <p>HSmania top 2 150pkt</p>
+    <h2 style="color: #f97316;">KIM JESTEŚMY?</h2>
+    <p>Rabsztyn Esports wywodzi się z kultowego nazwiska <span class="highlight">Piotrka</span>. Nie jesteśmy tylko grupą graczy – budujemy przyszłą potęgę polskiego esportu.</p>
+    <p>Nasza filozofia opiera się na ciągłym progresie i profesjonalnym podejściu do każdego meczu, niezależnie od rangi wydarzenia. Pasja i treningi prowadzą nas prosto na szczyt.</p>
+  </div>
+</div>
+
+<div class="section tab-content" id="turnieje">
+  <div class="card">
+    <h2 style="color: #f97316;">OSIĄGNIĘCIA</h2>
+    
+    <div style="border-left: 4px solid #f97316; padding-left: 20px; margin-top: 20px;">
+        <p style="font-size: 20px; margin: 0;"><strong>HSmania Season 4</strong></p>
+        <p>Miejsce: <span class="highlight">TOP 1</span> | Zdobyte: 100 PKT</p>
+    </div>
+
+    <div style="border-left: 4px solid #f97316; padding-left: 20px; margin-top: 20px;">
+        <p style="font-size: 20px; margin: 0;"><strong>HSmania Season 3</strong></p>
+        <p>Miejsce: <span class="highlight">TOP 4</span> | Zdobyte: 0 PKT</p>
+    </div>
+
+    <div style="border-left: 4px solid #f97316; padding-left: 20px; margin-top: 20px;">
+        <p style="font-size: 20px; margin: 0;"><strong>HSmania Season 2</strong></p>
+        <p>Miejsce: <span class="highlight">TOP 2</span> | Zdobyte: 50 PKT</p>
+    </div>
+
+    <div style="border-left: 4px solid #f97316; padding-left: 20px; margin-top: 20px;">
+        <p style="font-size: 20px; margin: 0;"><strong>HSmania Season 1</strong></p>
+        <p>Miejsce: <span class="highlight">TOP 8 W/O</span> | Zdobyte: 0 PKT</p>
+    </div>
+
+    <p style="margin-top: 30px; opacity: 1;">Więcej turniejów wkrótce...</p>
   </div>
 </div>
 
@@ -355,18 +319,61 @@ body::after {
   const secOnas = document.getElementById('onas');
   const secTurnieje = document.getElementById('turnieje');
 
-  btnOnas.addEventListener('click', () => {
+  btnOnas.onclick = () => {
     secOnas.classList.add('active-tab');
     secTurnieje.classList.remove('active-tab');
     btnOnas.classList.add('active-link');
     btnTurnieje.classList.remove('active-link');
-  });
+  };
 
-  btnTurnieje.addEventListener('click', () => {
+  btnTurnieje.onclick = () => {
     secTurnieje.classList.add('active-tab');
     secOnas.classList.remove('active-tab');
     btnTurnieje.classList.add('active-link');
     btnOnas.classList.remove('active-link');
+  };
+
+  function showToast() {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
+  function startCounters() {
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      let count = 0;
+      const update = () => {
+        const increment = target / 30;
+        if (count < target) {
+          count += increment;
+          counter.innerText = target % 1 !== 0 ? count.toFixed(2) : Math.ceil(count);
+          setTimeout(update, 30);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      update();
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if(entry.target.classList.contains('team')) startCounters();
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.player, .card, .team').forEach(el => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(40px)";
+    el.style.transition = "1s ease-out";
+    observer.observe(el);
   });
 </script>
 
