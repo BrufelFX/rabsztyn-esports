@@ -20,28 +20,30 @@ body {
   color: white;
 }
 
-/* GRID */
+/* GRID - Zmieniony na pomarańczowy */
 body::before {
   content: "";
   position: fixed;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(rgba(34,197,94,0.2) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 1px);
   background-size: 40px 40px;
   opacity: 0.25;
+  z-index: -1;
 }
 
-/* GLOW */
+/* GLOW - Zmieniony na pomarańczowy */
 body::after {
   content: "";
   position: fixed;
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(34,197,94,0.2), transparent 70%);
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.15), transparent 70%);
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   filter: blur(120px);
+  z-index: -1;
 }
 
 /* NAV */
@@ -53,6 +55,7 @@ body::after {
   top: 0;
   background: rgba(2,6,23,0.8);
   backdrop-filter: blur(10px);
+  z-index: 100;
 }
 
 .logo {
@@ -61,24 +64,38 @@ body::after {
 }
 
 .logo span {
-  color: #22c55e;
+  color: #f97316; /* Pomarańczowy */
 }
 
-.nav-links {
+/* CENTERED NAV */
+.centered-nav {
   display: flex;
-  gap: 25px;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 80px;
+  margin-bottom: 20px;
 }
 
-.nav-links a {
+.centered-nav a {
   text-decoration: none;
   color: white;
+  font-size: 20px;
+  font-weight: 600;
   opacity: 0.7;
-  transition: 0.2s;
+  transition: 0.3s;
+  padding-bottom: 5px;
+  cursor: pointer;
 }
 
-.nav-links a:hover {
+.centered-nav a:hover {
   opacity: 1;
-  color: #22c55e;
+  color: #f97316;
+}
+
+.centered-nav a.active-link {
+  opacity: 1;
+  color: #f97316;
+  border-bottom: 2px solid #f97316;
 }
 
 /* HERO */
@@ -94,7 +111,7 @@ body::after {
 }
 
 .hero h1 span {
-  background: linear-gradient(90deg, #22c55e, #60a5fa);
+  background: linear-gradient(90deg, #f97316, #fbbf24); /* Pomarańczowo-żółty gradient */
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -114,8 +131,15 @@ body::after {
   border-radius: 12px;
   border: none;
   font-weight: 600;
-  background: linear-gradient(90deg, #22c55e, #4ade80);
+  background: linear-gradient(90deg, #f97316, #ea580c); /* Pomarańczowy gradient */
+  color: white;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
 }
 
 /* SECTION */
@@ -123,6 +147,21 @@ body::after {
   margin-top: 120px;
   text-align: center;
   padding: 0 20px;
+}
+
+/* TABS */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.tab-content.active-tab {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .stats {
@@ -134,8 +173,8 @@ body::after {
 }
 
 .stats span {
-  background: rgba(34,197,94,0.15);
-  border: 1px solid rgba(34,197,94,0.3);
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.3);
   padding: 5px 10px;
   border-radius: 8px;
   font-size: 12px;
@@ -143,7 +182,7 @@ body::after {
 
 .card {
   max-width: 800px;
-  margin: 40px auto;
+  margin: 20px auto 40px;
   padding: 30px;
   border-radius: 16px;
   background: rgba(15,23,42,0.6);
@@ -153,7 +192,7 @@ body::after {
 }
 
 .highlight {
-  color: #22c55e;
+  color: #f97316;
   font-weight: 600;
 }
 
@@ -180,6 +219,7 @@ body::after {
 .player:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  border-color: rgba(249, 115, 22, 0.3);
 }
 
 .player img {
@@ -188,7 +228,7 @@ body::after {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 10px;
-  border: 2px solid #22c55e;
+  border: 2px solid #f97316;
 }
 
 .player h3 {
@@ -206,12 +246,6 @@ body::after {
 <!-- NAV -->
 <div class="nav">
   <div class="logo">Rabsztyn<span> Esports</span></div>
-
-  <div class="nav-links">
-    <a href="#onas">O nas</a>
-    <a href="#sklad">Skład</a>
-    <a href="#turnieje">Turnieje</a>
-  </div>
 </div>
 
 <!-- HERO -->
@@ -223,16 +257,15 @@ body::after {
   <button class="btn">Dołącz do nas</button>
 </div>
 
+<!-- SKŁAD -->
 <div class="section" id="sklad">
   <h2>Skład drużyny</h2>
 
   <div class="team">
-
     <div class="player">
       <img src="https://cdn.discordapp.com/attachments/1033412098736275567/1485724425927135332/rabsztynlogo.png?ex=69fb98b2&is=69fa4732&hm=0e7b9ccebd60b4cc5147c9e7094452c323217536625de6d2895729c8deace845&">
       <h3>Xchabolol</h3>
       <p>Rifler</p>
-
       <div class="stats">
         <span>K/D: 1.02</span>
         <span>HS: 50%</span>
@@ -245,7 +278,6 @@ body::after {
       <img src="https://cdn.discordapp.com/attachments/1033412098736275567/1485724425927135332/rabsztynlogo.png?ex=69fb98b2&is=69fa4732&hm=0e7b9ccebd60b4cc5147c9e7094452c323217536625de6d2895729c8deace845&">
       <h3>Qprei</h3>
       <p>Kotwica / Rifler</p>
-
       <div class="stats">
         <span>K/D: 1.11</span>
         <span>HS: 47%</span>
@@ -258,7 +290,6 @@ body::after {
       <img src="https://cdn.discordapp.com/attachments/1033412098736275567/1485724425927135332/rabsztynlogo.png?ex=69fb98b2&is=69fa4732&hm=0e7b9ccebd60b4cc5147c9e7094452c323217536625de6d2895729c8deace845&">
       <h3>BrufelFX</h3>
       <p>AWP</p>
-
       <div class="stats">
         <span>K/D: 1.62</span>
         <span>HS: 35%</span>
@@ -271,9 +302,8 @@ body::after {
       <img src="https://cdn.discordapp.com/attachments/1033412098736275567/1485724425927135332/rabsztynlogo.png?ex=69fb98b2&is=69fa4732&hm=0e7b9ccebd60b4cc5147c9e7094452c323217536625de6d2895729c8deace845&">
       <h3>Kenzo</h3>
       <p>Rifler</p>
-
       <div class="stats">
-        <span>K/D: 1.03</span>
+        <span>K/D: 1.07</span>
         <span>HS: 56%</span>
         <span>ADR: 80</span>
         <span>Win: 51%</span>
@@ -284,7 +314,6 @@ body::after {
       <img src="https://cdn.discordapp.com/attachments/1033412098736275567/1485724425927135332/rabsztynlogo.png?ex=69fb98b2&is=69fa4732&hm=0e7b9ccebd60b4cc5147c9e7094452c323217536625de6d2895729c8deace845&">
       <h3>Antek</h3>
       <p>Rifler</p>
-
       <div class="stats">
         <span>K/D: 1.28</span>
         <span>HS: 55%</span>
@@ -292,12 +321,17 @@ body::after {
         <span>Win: 56%</span>
       </div>
     </div>
-
   </div>
 </div>
 
+<!-- NAWIGACJA ZAKŁADEK -->
+<div class="centered-nav">
+  <a id="btn-onas" class="active-link">O nas</a>
+  <a id="btn-turnieje">Turnieje</a>
+</div>
+
 <!-- O NAS -->
-<div class="section" id="onas">
+<div class="section tab-content active-tab" id="onas" style="margin-top: 20px;">
   <div class="card">
     <h2>Kim jesteśmy?</h2>
     <p>
@@ -308,12 +342,33 @@ body::after {
 </div>
 
 <!-- TURNIEJE -->
-<div class="section" id="turnieje">
+<div class="section tab-content" id="turnieje" style="margin-top: 20px;">
   <div class="card">
     <h2>Turnieje</h2>
     <p>HSmania top 2 150pkt</p>
   </div>
 </div>
+
+<script>
+  const btnOnas = document.getElementById('btn-onas');
+  const btnTurnieje = document.getElementById('btn-turnieje');
+  const secOnas = document.getElementById('onas');
+  const secTurnieje = document.getElementById('turnieje');
+
+  btnOnas.addEventListener('click', () => {
+    secOnas.classList.add('active-tab');
+    secTurnieje.classList.remove('active-tab');
+    btnOnas.classList.add('active-link');
+    btnTurnieje.classList.remove('active-link');
+  });
+
+  btnTurnieje.addEventListener('click', () => {
+    secTurnieje.classList.add('active-tab');
+    secOnas.classList.remove('active-tab');
+    btnTurnieje.classList.add('active-link');
+    btnOnas.classList.remove('active-link');
+  });
+</script>
 
 </body>
 </html>
